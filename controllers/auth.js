@@ -6,6 +6,7 @@ import User from "../models/User.js";
 
 export const register = async (req, res) => {
   try {
+    res.header('Access-Control-Allow-Origin', '*');
     const {
       firstName,
       lastName,
@@ -42,6 +43,7 @@ export const register = async (req, res) => {
 /* LOGIN */
 const login = async (req, res) => {
   try {
+    res.header('Access-Control-Allow-Origin', '*');
     const { email, password } = req.body;
     const user = await User.findOne({ email: email });
     if (!user) return res.status(400).json({ msg: "User does not exist. " });
