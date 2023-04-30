@@ -59,7 +59,7 @@ app.use("/posts", postRoutes);
 
 const PORT = process.env.PORT || 6001;
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(`mongodb+srv://${process.env.USERID}:${process.env.PASSWORD}@cluster0.fpj5vem.mongodb.net/?retryWrites=true&w=majority`,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
