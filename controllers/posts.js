@@ -20,6 +20,7 @@ export const createPost = async (req, res) => {
     await newPost.save();
 
     const post = await Post.find();
+    res.header('Access-Control-Allow-Origin', '*');
     res.status(201).json(post);
   } catch (err) {
     res.status(409).json({ message: err.message });
@@ -30,6 +31,7 @@ export const createPost = async (req, res) => {
 export const getFeedPosts = async (req, res) => {
   try {
     const post = await Post.find();
+    res.header('Access-Control-Allow-Origin', '*');
     res.status(200).json(post);
   } catch (err) {
     res.status(404).json({ message: err.message });
@@ -40,6 +42,7 @@ export const getUserPosts = async (req, res) => {
   try {
     const { userId } = req.params;
     const post = await Post.find({ userId });
+    res.header('Access-Control-Allow-Origin', '*');
     res.status(200).json(post);
   } catch (err) {
     res.status(404).json({ message: err.message });
@@ -65,7 +68,7 @@ export const likePost = async (req, res) => {
       { likes: post.likes },
       { new: true }
     );
-
+    res.header('Access-Control-Allow-Origin', '*');
     res.status(200).json(updatedPost);
   } catch (err) {
     res.status(404).json({ message: err.message });
@@ -85,7 +88,7 @@ export const commentPost = async (req, res) => {
       { comments: post.comments },
       { new: true }
     );
-
+    res.header('Access-Control-Allow-Origin', '*');
     res.status(200).json(updatedPost1);
 
   }catch(err){
