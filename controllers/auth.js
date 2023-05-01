@@ -34,7 +34,7 @@ export const register = async (req, res) => {
       impressions: Math.floor(Math.random() * 10000),
     });
     const savedUser = await newUser.save();
-    res.header('Access-Control-Allow-Origin', '*');
+    // res.header('Access-Control-Allow-Origin', '*');
     res.status(201).json(savedUser);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -56,7 +56,7 @@ const login = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
     delete user.password;
-    res.header('Access-Control-Allow-Origin', '*');
+    // res.header('Access-Control-Allow-Origin', '*');
     res.status(200).json({token, user});
   } catch (err) {
     res.status(500).json({ error: err.message });
