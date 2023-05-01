@@ -52,7 +52,7 @@ res.send("<h1>APIs</h1>"
   )
 })
 
-app.post("/register", upload.single("picture"),register)
+app.post("/auth/register", upload.single("picture"),register)
 app.post("/posts",verifyToken, upload.single("picture"), createPost);
 
 /* ROUTES*/
