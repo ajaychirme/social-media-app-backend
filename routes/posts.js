@@ -9,7 +9,7 @@ router.get("/", verifyToken, getFeedPosts);
 router.get("/:userId/posts", verifyToken, getUserPosts);
 
 /* UPDATE */
-router.patch("/:id/like", verifyToken, likePost);
-router.patch("/:id/comment", verifyToken ,commentPost);
+router.post("/:id/like", verifyToken, likePost);
+router.post("/:id/comment", verifyToken ,commentPost);
 
 export default router;
